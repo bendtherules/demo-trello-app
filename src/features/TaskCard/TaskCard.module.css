@@ -1,9 +1,22 @@
 .cardContainer {
+  position: relative;
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
   padding: 8px;
   margin: 8px 0;
+}
+
+.cardEditBtn {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  visibility: hidden;
+}
+
+.cardContainer:focus .cardEditBtn,
+.cardContainer:focus-within .cardEditBtn {
+  visibility: visible;
 }
 
 .createCardContainer {

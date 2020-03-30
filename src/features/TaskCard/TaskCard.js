@@ -8,14 +8,18 @@ export function TaskCard({ cardData, listID }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const stopEditing = () => setIsEditing(false);
+  const startEditing = () => setIsEditing(true);
 
   return !isEditing ? (
     <div
       className={styles.cardContainer}
       tabIndex={1}
-      onDoubleClick={e => setIsEditing(true)}
+      onDoubleClick={startEditing}
     >
-      {cardData.text}
+      <div>{cardData.text}</div>
+      <div className={styles.cardEditBtn}>
+        <input type="button" value="Edit" onClick={startEditing} />
+      </div>
     </div>
   ) : (
     <CreateOrEditTaskCard
