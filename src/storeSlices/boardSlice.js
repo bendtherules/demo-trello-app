@@ -38,6 +38,21 @@ export const slice = createSlice({
             text: "Creative insights view"
           }
         ]
+      },
+      {
+        id: `List #${generateID()}`,
+        name: "Prioritized",
+        cards: [
+          {
+            id: `Card #${generateID()}`,
+            text: "Language support"
+          }
+        ]
+      },
+      {
+        id: `List #${generateID()}`,
+        name: "Empty demo list",
+        cards: []
       }
     ],
     // Overwrite with existing localStorage stuff
