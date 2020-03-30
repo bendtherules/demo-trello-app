@@ -8,7 +8,7 @@ export function TaskCard({ cardData }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} tabIndex={1} contentEditable="true">
       {cardData.text}
     </div>
   );

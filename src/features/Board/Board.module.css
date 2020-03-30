@@ -1,0 +1,13 @@
+.boardContainer {
+  margin: 16px;
+}
+
+.boardName {
+  text-align: center;
+  margin: 8px;
+}
+
+.listsContainer {
+  display: flex;
+  flex-direction: row;
+}

@@ -12,8 +12,8 @@ export function TaskList({ listData }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.listContainer}>
-      <div className={styles.listName}>{listData.name}</div>
+    <div className={styles.listContainer} tabIndex={1}>
+      <h3 className={styles.listName}>{listData.name}</h3>
       <div className={styles.cardsContainer}>
         {listData.cards.map(cardData => (
           <TaskCard key={cardData.id} cardData={cardData} />

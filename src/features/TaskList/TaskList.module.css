@@ -1,0 +1,19 @@
+.listContainer {
+  flex: 0 0 250px;
+  margin: 0 8px;
+  padding: 0px 8px;
+  padding-bottom: 8px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+}
+
+.listContainer:first-child {
+  margin-left: 8px;
+}
+.listContainer:last-child {
+  margin-right: 8px;
+}
+
+.listName {
+  padding-left: 4px;
+}

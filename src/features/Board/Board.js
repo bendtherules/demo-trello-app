@@ -11,8 +11,8 @@ export function Board() {
   const boardData = useSelector(selectBoardData);
 
   return (
-    <div>
-      <div className={styles.boardName}>{boardData.name}</div>
+    <div className={styles.boardContainer}>
+      <h1 className={styles.boardName}>{boardData.name}</h1>
       <div className={styles.listsContainer}>
         {boardData.lists.map(listData => (
           <TaskList key={listData.id} listData={listData} />
