@@ -12,7 +12,7 @@ export function TaskList({ listData }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.listContainer} tabIndex={1}>
+    <div className={styles.listContainer} tabIndex={0}>
       <h3 className={styles.listName}>{listData.name}</h3>
       <div className={styles.cardsContainer}>
         {listData.cards.map(cardData => (

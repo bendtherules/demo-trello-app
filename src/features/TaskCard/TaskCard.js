@@ -13,7 +13,7 @@ export function TaskCard({ cardData, listID }) {
   return !isEditing ? (
     <div
       className={styles.cardContainer}
-      tabIndex={1}
+      tabIndex={0}
       onDoubleClick={startEditing}
     >
       <div>{cardData.text}</div>
