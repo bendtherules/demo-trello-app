@@ -11,8 +11,10 @@ export function NewTaskListPrompt() {
 
   return (
     <div className={styles.listContainer}>
+      <label className="sr-only" for="createNewList">Create new list</label>
       <input
-         className={styles.newListInput}
+        id="createNewList"
+        className={styles.newListInput}
         type="text"
         placeholder="+ Create list"
         value={newListname}
