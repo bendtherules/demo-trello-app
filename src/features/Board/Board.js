@@ -1,29 +1,23 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { createList, selectBoard } from "../../storeSlices/boardSlice";
+import { useSelector } from "react-redux";
+
+import { TaskList } from "../TaskList/TaskList";
+import { NewTaskListPrompt } from "../TaskList/NewTaskListPrompt";
 
 import styles from "./Board.module.css";
 
 export function Board() {
-  const boardData = useSelector(selectBoard);
-  const dispatch = useDispatch();
+  const selectBoardData = state => state.board;
+  const boardData = useSelector(selectBoardData);
 
   return (
     <div>
       <div className={styles.boardName}>{boardData.name}</div>
       <div className={styles.listsContainer}>
         {boardData.lists.map(listData => (
-          <div key={listData.id} className={styles.listContainer}>
-            <div className={styles.listName}>{listData.name}</div>
-            <div className={styles.cardsContainer}>
-              {listData.cards.map(cardData => (
-                <div key={cardData.id} className={styles.cardContainer}>
-                  {cardData.text}
-                </div>
-              ))}
-            </div>
-          </div>
+          <TaskList key={listData.id} listData={listData} />
         ))}
+        <NewTaskListPrompt key="newListPrompt" />
       </div>
     </div>
   );
