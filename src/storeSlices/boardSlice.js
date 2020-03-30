@@ -72,7 +72,7 @@ export const slice = createSlice({
       const { text: cardText, cardID, listID: parentListID } = action.payload;
 
       const parentList = state.lists.find(({ id }) => id === parentListID);
-      const existingCard = parentList.find(({ id }) => id === cardID);
+      const existingCard = parentList.cards.find(({ id }) => id === cardID);
 
       existingCard.text = cardText;
     }

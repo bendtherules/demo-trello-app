@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createList } from "../../storeSlices/boardSlice";
 
 import { TaskCard } from "../TaskCard/TaskCard";
-import { NewTaskCardPrompt } from "../TaskCard/NewTaskCardPrompt";
+import { CreateOrEditTaskCard } from "../TaskCard/CreateOrEditTaskCard";
 
 import styles from "./TaskList.module.css";
 
@@ -16,9 +16,9 @@ export function TaskList({ listData }) {
       <h3 className={styles.listName}>{listData.name}</h3>
       <div className={styles.cardsContainer}>
         {listData.cards.map(cardData => (
-          <TaskCard key={cardData.id} cardData={cardData} />
+          <TaskCard key={cardData.id} listID={listData.id} cardData={cardData} />
         ))}
-        <NewTaskCardPrompt listID={listData.id} />
+        <CreateOrEditTaskCard listID={listData.id} />
       </div>
     </div>
   );

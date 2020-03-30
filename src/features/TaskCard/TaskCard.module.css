@@ -5,3 +5,41 @@
   padding: 8px;
   margin: 8px 0;
 }
+
+.createCardContainer {
+  width: 100%;
+  resize: vertical;
+  font-size: 1em;
+}
+
+.createCardForm {
+  margin: 8px 0;
+}
+
+.createInitBtn {
+  width: 100%;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.85em;
+}
+
+.createActionBtnContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.createActionBtnContainer > input {
+  flex: 1 0 50px;
+  margin: 0 8px;
+  padding: 4px 0;
+}
+
+.createActionBtnContainer > input:first-child {
+  margin-left: 0;
+}
+
+.createActionBtnContainer > input:last-child {
+  margin-right: 0;
+}
