@@ -12,8 +12,9 @@ export function NewTaskListPrompt() {
   return (
     <div className={styles.listContainer}>
       <input
+         className={styles.newListInput}
         type="text"
-        placeholder="Create list"
+        placeholder="+ Create list"
         value={newListname}
         onChange={e => setNewListname(e.target.value)}
         onKeyPress={e => {

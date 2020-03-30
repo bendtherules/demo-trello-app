@@ -1,5 +1,6 @@
 .listContainer {
   flex: 0 0 250px;
+  height: max-content;
   margin: 0 8px;
   padding: 0px 8px;
   padding-bottom: 8px;
@@ -16,4 +17,14 @@
 
 .listName {
   padding-left: 4px;
+}
+
+.newListInput {
+  margin: 16px 0;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 3px;
+  border: unset;
+  padding: 2px 4px;
+  width: 100%;
 }
