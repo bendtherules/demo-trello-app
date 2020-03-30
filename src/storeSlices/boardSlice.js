@@ -50,6 +50,14 @@ export const slice = createSlice({
       });
     },
 
+    editList: (state, action) => {
+      const { name, listID } = action.payload;
+
+      const existingList = state.lists.find(({ id }) => id === listID);
+
+      existingList.name = name;
+    },
+
     createTask: (state, action) => {
       const { text: cardText, listID: parentListID } = action.payload;
 
@@ -58,10 +66,19 @@ export const slice = createSlice({
         id: `Card #${generateID()}`,
         text: cardText
       });
+    },
+
+    editTask: (state, action) => {
+      const { text: cardText, cardID, listID: parentListID } = action.payload;
+
+      const parentList = state.lists.find(({ id }) => id === parentListID);
+      const existingCard = parentList.find(({ id }) => id === cardID);
+
+      existingCard.text = cardText;
     }
   }
 });
 
-export const { createList, createTask } = slice.actions;
+export const { createList, createTask, editList, editTask } = slice.actions;
 
 export default slice.reducer;
