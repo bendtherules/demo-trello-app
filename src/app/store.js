@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
-import boardReducer from "../features/Board/boardSlice";
+import boardReducer from "../storeSlices/boardSlice";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
     board: boardReducer
   }
 });

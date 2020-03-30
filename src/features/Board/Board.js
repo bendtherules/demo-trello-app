@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createList, selectBoard } from "./boardSlice";
+import { createList, selectBoard } from "../../storeSlices/boardSlice";
 
 import styles from "./Board.module.css";
 

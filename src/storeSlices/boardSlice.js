@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import generateID from "../../utils/generateID";
+import generateID from "../utils/generateID";
 
 export const slice = createSlice({
   name: "board",
