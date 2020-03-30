@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createTask, editTask } from "../../storeSlices/boardSlice";
+import { createTask, editTask, deleteTask } from "../../storeSlices/boardSlice";
 import useAutoHeightTextArea from "../../utils/useAutoHeightTextArea";
 
 import styles from "./TaskCard.module.css";
@@ -62,6 +62,16 @@ export function CreateOrEditTaskCard({
     parentOnCancel();
   };
 
+  const onDelete = () => {
+    const confirmDelete = window.confirm(
+      "Do you really want to delete the task?"
+    );
+    if (confirmDelete) {
+      const payload = { cardID: cardID, listID };
+      dispatch(deleteTask(payload));
+    }
+  };
+
   /*
   ---------
   Render here
@@ -88,8 +98,21 @@ export function CreateOrEditTaskCard({
             onChange={e => setNewCardText(e.target.value)}
           ></textarea>
           <div className={styles.createActionBtnContainer}>
-            <input type="submit" value="Save" disabled={!isTextNonEmpty} />
-            <input type="button" value="Cancel" onClick={onCancel} />
+            <div className={styles.createActionBtnRow}>
+              <input type="submit" value="Save" disabled={!isTextNonEmpty} />
+              <input type="button" value="Cancel" onClick={onCancel} />
+            </div>
+            {/* Show delete button onlyin edit mode */}
+            {!isCreateMode ? (
+              <div className={styles.createActionBtnRow}>
+                <input
+                  className={styles.deleteTaskBtn}
+                  type="button"
+                  value="Delete task"
+                  onClick={onDelete}
+                />
+              </div>
+            ) : null}
           </div>
         </form>
       )}

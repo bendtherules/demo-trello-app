@@ -26,20 +26,34 @@
 }
 
 .createActionBtnContainer {
-  display: flex;
-  justify-content: space-evenly;
+  margin-bottom: 12px;
 }
 
-.createActionBtnContainer > input {
+.createActionBtnRow {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 4px 0;
+}
+
+.createActionBtnRow:first-child {
+  margin-top: 0;
+}
+
+.createActionBtnRow > input {
   flex: 1 0 50px;
   margin: 0 8px;
   padding: 4px 0;
 }
 
-.createActionBtnContainer > input:first-child {
+.createActionBtnRow > input:first-child {
   margin-left: 0;
 }
 
-.createActionBtnContainer > input:last-child {
+.createActionBtnRow > input:last-child {
   margin-right: 0;
+}
+
+.deleteTaskBtn {
+  color: #f44335;
+  font-size: 0.85em;
 }

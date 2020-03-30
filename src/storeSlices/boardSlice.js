@@ -75,10 +75,21 @@ export const slice = createSlice({
       const existingCard = parentList.cards.find(({ id }) => id === cardID);
 
       existingCard.text = cardText;
+    },
+
+    deleteTask: (state, action) => {
+      const { text: cardText, cardID, listID: parentListID } = action.payload;
+
+      const parentList = state.lists.find(({ id }) => id === parentListID);
+      const existingCardIndex = parentList.cards.findIndex(({ id }) => id === cardID);
+
+      if (existingCardIndex > -1) {
+        parentList.cards.splice(existingCardIndex, 1);
+      }
     }
   }
 });
 
-export const { createList, createTask, editList, editTask } = slice.actions;
+export const { createList, createTask, editList, editTask, deleteTask } = slice.actions;
 
 export default slice.reducer;
