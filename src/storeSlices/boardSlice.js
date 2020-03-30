@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import generateID from "../utils/generateID";
+import { loadState } from "../utils/persistStateUtils";
+
+const existingStore = loadState();
+let existingBoardSlice = (existingStore && existingStore.board) || {};
 
 export const slice = createSlice({
   name: "board",
@@ -34,7 +39,9 @@ export const slice = createSlice({
           }
         ]
       }
-    ]
+    ],
+    // Overwrite with existing localStorage stuff
+    ...existingBoardSlice
   },
   reducers: {
     // NOTE: Modifying state directly here is FINE and intended.
@@ -81,7 +88,9 @@ export const slice = createSlice({
       const { text: cardText, cardID, listID: parentListID } = action.payload;
 
       const parentList = state.lists.find(({ id }) => id === parentListID);
-      const existingCardIndex = parentList.cards.findIndex(({ id }) => id === cardID);
+      const existingCardIndex = parentList.cards.findIndex(
+        ({ id }) => id === cardID
+      );
 
       if (existingCardIndex > -1) {
         parentList.cards.splice(existingCardIndex, 1);
@@ -90,6 +99,12 @@ export const slice = createSlice({
   }
 });
 
-export const { createList, createTask, editList, editTask, deleteTask } = slice.actions;
+export const {
+  createList,
+  createTask,
+  editList,
+  editTask,
+  deleteTask
+} = slice.actions;
 
 export default slice.reducer;
