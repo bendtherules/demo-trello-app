@@ -95,6 +95,11 @@ export function CreateOrEditTaskCard({
             placeholder="Create task"
             autoFocus={true}
             value={newCardText}
+            onKeyPress={e => {
+              if (e.key === 'Enter') {
+                onSubmit(e);
+              }
+            }}
             onChange={e => setNewCardText(e.target.value)}
           ></textarea>
           <div className={styles.createActionBtnContainer}>
