@@ -48,10 +48,20 @@ export const slice = createSlice({
         name,
         cards: []
       });
+    },
+
+    createTask: (state, action) => {
+      const { text: cardText, listID: parentListID } = action.payload;
+
+      const parentList = state.lists.find(({ id }) => id === parentListID);
+      parentList.cards.push({
+        id: `Card #${generateID()}`,
+        text: cardText
+      });
     }
   }
 });
 
-export const { createList } = slice.actions;
+export const { createList, createTask } = slice.actions;
 
 export default slice.reducer;
